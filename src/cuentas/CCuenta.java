@@ -1,5 +1,10 @@
 package cuentas;
 
+/**
+ *  Clase que implementa una cuenta 
+ * @author Angel Lopez zamarron
+ */
+
 public class CCuenta {
 
     /**
@@ -58,28 +63,46 @@ public class CCuenta {
         this.tipoInterés = tipoInterés;
     }
 
-
     private String nombre;
     private String cuenta;
     private double saldo;
     private double tipoInterés;
 
+    /**
+     * Constructor vacio
+     */
     public CCuenta()
     {
     }
 
+    /**
+     * El constructor de la clase con atributos
+     * @param nom
+     * @param cue
+     * @param sal
+     * @param tipo 
+     */
     public CCuenta(String nom, String cue, double sal, double tipo)
     {
         nombre =nom;
         cuenta=cue;
         saldo=sal;
     }
-
+    
+    /**
+     * Devuelve el estado de la cuenta
+     * @return saldo de la cuenta
+     */
     public double estado()
     {
         return getSaldo();
     }
 
+    /**
+     * Ingreso de cantidad en cuenta
+     * @param cantidad
+     * @throws Exception si cantidad es negativa
+     */
     public void ingresar(double cantidad) throws Exception
     {
         if (cantidad<0)
@@ -87,6 +110,11 @@ public class CCuenta {
         setSaldo(getSaldo() + cantidad);
     }
 
+    /**
+     * Retira una cantidad
+     * @param cantidad
+     * @throws Exception si la cantidad es cero o negativa o si no existe saldo suficiente en cuenta
+     */
     public void retirar(double cantidad) throws Exception
     {
         if (cantidad <= 0)
